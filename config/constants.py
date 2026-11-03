@@ -37,10 +37,10 @@ DEBUG = getenv("DEBUG") == "True"
 #               moment it opens (recommended; slots open ahead of time and are
 #               uncontested for minutes). Self-adjusting: reads the times live.
 # "immediate" → just book what is available right now (classic flow / testing).
-BOOKING_MODE = (getenv("BOOKING_MODE") or "opening").strip().lower()
+BOOKING_MODE = "immediate"
 
 # Which day to book: today + this many days.
-BOOK_DAYS_AHEAD = int(getenv("BOOK_DAYS_AHEAD") or "4")
+BOOK_DAYS_AHEAD = 0
 
 # Floor selection & priority. Empty = auto-discover and use ALL floors. Otherwise
 # a comma-separated priority list of name/slug substrings (case-insensitive).
@@ -66,7 +66,7 @@ SNIPE_WINDOW_S = int(getenv("SNIPE_WINDOW_S") or "20")
 DISCOVER_SLOTS = getenv("DISCOVER_SLOTS") == "True"
 
 # Booking time slots (comma-separated HH:MM:SS-HH:MM:SS, in order of priority)
-BOOKING_TIMES_CSV = getenv("BOOKING_TIMES") or "14:00:00-19:00:00, 09:00:00-13:00:00, 20:00:00-23:45:00"
+BOOKING_TIMES_CSV = "12:00:00-14:00:00"
 BOOKING_TIMES = [
     {"start": b.split("-")[0].strip(), "end": b.split("-")[1].strip()}
     for b in BOOKING_TIMES_CSV.split(",") if "-" in b
