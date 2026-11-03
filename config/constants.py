@@ -44,7 +44,7 @@ BOOK_DAYS_AHEAD = int(getenv("BOOK_DAYS_AHEAD") or "4")
 
 # Floor selection & priority. Empty = auto-discover and use ALL floors. Otherwise
 # a comma-separated priority list of name/slug substrings (case-insensitive).
-FLOORS = [f.strip().lower() for f in (getenv("FLOORS") or "").split(",") if f.strip()]
+FLOORS = ["1. og"]
 
 # Favorite seats tried first within a floor (comma-separated, priority order;
 # case-insensitive substring match against the seat name). A preference, not a filter.
